@@ -73,6 +73,7 @@ public class Main {
         System.out.println("[4] Números ordenados de mayor a menos");
         System.out.print("Opción: ");
         opcion = sc.next().charAt(0);
+        sc.close();
         switch (opcion) {
             case '1':
                 System.out.println(compararNumeros(primerNumero, segundoNumero));
