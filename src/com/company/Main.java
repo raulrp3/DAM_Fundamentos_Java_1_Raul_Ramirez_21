@@ -3,14 +3,28 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
-    public static int validarEntero(Scanner sc) {
-        int numeroValidado;
-        while (!sc.hasNextInt()) {
-            System.out.print("¡Introduce un valor numérico entero! ");
-            sc.next();
+    public static double validador(int opcion) {
+        double validado = 0;
+        Scanner sc = new Scanner(System.in);
+        switch (opcion) {
+            case 0: {
+                while (!sc.hasNextInt()) {
+                    System.out.print("¡Por favor introduce un número entero! ");
+                    sc.next();
+                }
+                validado = sc.nextDouble();
+            }
+            break;
+            case 1: {
+                while (!sc.hasNextDouble()) {
+                    System.out.print("¡Por favor introduce un número decimal! ");
+                    sc.next();
+                }
+                validado = sc.nextDouble();
+            }
+            break;
         }
-        numeroValidado = sc.nextInt();
-        return numeroValidado;
+        return validado;
     }
 
     public static String compararNumeros(int primerNumero, int segundoNumero) {
@@ -63,9 +77,9 @@ public class Main {
         char opcion;
         System.out.println("¡Vamos a realizar una serie de operaciones con dos números!");
         System.out.print("Introduce un primer número: ");
-        primerNumero = validarEntero(sc);
+        primerNumero = (int) validador(0);
         System.out.print("Introduce un segundo número: ");
-        segundoNumero = validarEntero(sc);
+        segundoNumero = (int) validador(0);
         System.out.println("--MENÚ--");
         System.out.println("[1] ¿Son iguales?");
         System.out.println("[2] ¿Son múltiplos?");
